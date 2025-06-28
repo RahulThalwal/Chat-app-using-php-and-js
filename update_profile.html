@@ -8,19 +8,31 @@
     </head>
     <body>
         <div class="update-profile">
-            <img src="uploaded_img/default-avatar.png" alt>
 
             <form action method="post" enctype="multipart/form-data">
+                <img src="uploaded_img/default-avatar.png" alt>
+
                 <div class="alert">Can't update the Profile </div>
 
                 <div class="flex">
                     <div class="inputBox">
                         <span>username :</span>
-                    <input type="text" name="update_name" value="King code" class="box" >
-                    <span>useremail :</span>
-                    <input type="email" name="update_email" value="Kingcode@gmail.com" class="box" >
-                     <span> Update your picture:</span>
-                    <input type="file" name="update_image" accept="image/jpg, img/jpeg, image/png" class="box">
+                        <input type="text" name="update_name" value="King code"
+                            class="box">
+                        <span>useremail :</span>
+                        <input type="email" name="update_email"
+                            value="Kingcode@gmail.com" class="box">
+                        <span> Update your picture:</span>
+                        <input type="file" name="update_image" accept="image/*"
+                            class="box">
+                    </div>
+                    <div class="inputBox">
+                        <span>old password :</span>
+                        <input type="password" name="old_pass" class="box">
+                        <span>new password :</span>
+                        <input type="password" name="new_pass" class="box">
+                        <span> confirm password:</span>
+                        <input type="password" name="confirm_pass" class="box">
                     </div>
                 </div>
             </form>
