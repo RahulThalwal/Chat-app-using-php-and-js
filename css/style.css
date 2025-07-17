@@ -387,6 +387,32 @@
      background: var(--white);
  }
 
+ .chat-box .chat p {
+     word-wrap: break-word;
+     padding: 8px 16px;
+     box-shadow: 0 0 32px rgb(0 0 0/8%),
+         0rem 16px 16px -16px rgb(0 0 0 / 10%);
+
+ }
+
+ .chat-box .outgoing {
+     display: flex;
+
+ }
+
+ .chat-box .outgoing .details {
+     margin-left: auto;
+     min-width: calc(100% - 130px);
+ }
+
+ .outgoing .details p {
+     background: var(--blue);
+     color: var(--white);
+     border-radius: 18px 18px 0 18px;
+ }
+
+
+
  .typing-area {
      padding: 18px 30px;
      display: flex;
