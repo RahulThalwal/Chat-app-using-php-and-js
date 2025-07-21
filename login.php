@@ -17,6 +17,13 @@ if (isset($_POST['submit'])){ // If user click the submit button
     $row = mysqli_fetch_assoc($select);
     $status = 'Active Now'; //User status
 
+    $update = mysqli_query($conn, "UPDATE user_form SET status = '$status' WHERE user_id = '{$row['user_id']}' ");
+
+    if($update){
+        $_SESSION['user_id'] = $row['user_id'];
+        header('location: home.php');
+    }
+
 
  }else{
     $alert[]="Incorrect password or email!";
