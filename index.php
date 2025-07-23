@@ -89,7 +89,7 @@ $insert = mysqli_query($conn, "INSERT INTO `user_form`( `user_id`,`name`, `email
             <input type="password" class="box" name="cpassword" placeholder="confirm password" required>
             <input type="file" name="image" class="box " accept="image/*">
             <input type="submit" name="submit" class="btn" value="start chatting" required>
-            <p>already have an acocunt? <a href="login.html">Login
+            <p>already have an acocunt? <a href="login.php">Login
                     Now</a></p>
         </form>
     </div>

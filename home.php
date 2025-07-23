@@ -1,3 +1,21 @@
+<?php
+include 'php/config.php';// including the database connection
+session_start();
+$user_id = $_SESSION['user_id'];
+
+if(!isset($user_id)){
+    header('location: login.php');
+}
+
+  $select = mysqli_query($conn, "SELECT * from user_form WHERE user_id = '$user_id'");
+  if(mysqli_num_rows($select) > 0 ){
+    $row = mysqli_fetch_assoc($select);
+  }
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,7 +30,7 @@
                 <header class="profile">
                     <div class="content">
                         <a href="update_profile.html"><img
-                                src="uploaded_img/default-avatar.png" alt></a>
+                                src="uploaded_img/<?php echo rawurlencode(trim($row['img']));?>" alt></a>
                         <div class="details">
                             <span>Kinf Code</span>
                             <p>Active now</p>
