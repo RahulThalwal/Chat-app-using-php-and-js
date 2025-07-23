@@ -71,7 +71,7 @@ if (isset($_POST['submit'])){ // If user click the submit button
 
                 <input type="submit" name="submit" class="btn" value="start chatting"
                     required>
-                <p>don't have an acocunt? <a href="index.html">Register
+                <p>don't have an acocunt? <a href="index.php">Register
                         Now</a></p>
             </form>
         </div>

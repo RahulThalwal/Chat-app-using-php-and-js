@@ -32,8 +32,8 @@ if(!isset($user_id)){
                         <a href="update_profile.html"><img
                                 src="uploaded_img/<?php echo rawurlencode(trim($row['img']));?>" alt></a>
                         <div class="details">
-                            <span>Kinf Code</span>
-                            <p>Active now</p>
+                            <span><?php echo rawurlencode(trim($row['name']));?></span>
+                            <p><?php echo rawurlencode(trim($row['status']));?></p>
                         </div>
                     </div>
                     <a href="" class="logout">Logout</a>
