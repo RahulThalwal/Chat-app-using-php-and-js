@@ -29,7 +29,7 @@ if(!isset($user_id)){
             <section class="users">
                 <header class="profile">
                     <div class="content">
-                        <a href="update_profile.html"><img
+                        <a href="update_profile.php"><img
                                 src="uploaded_img/<?php echo rawurlencode(trim($row['img']));?>" alt></a>
                         <div class="details">
                             <span><?php echo rawurlencode(trim($row['name']));?></span>
@@ -45,7 +45,7 @@ if(!isset($user_id)){
                     </button>
                 </form>
                 <div class="all_users">
-                    <a href="chat.html">
+                    <a href="chat.php">
                         <div class="content">
                             <img src="uploaded_img/default-avatar.png" alt=""> 
                             <div class="details">

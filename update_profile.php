@@ -39,7 +39,7 @@
                 </div>
                 <div class="flex btns">
 <input type="submit" value="update profile" name="update profile" class="btn" > 
-<a href="home.html" class="delete-btn" >Go Back</a>
+<a href="home.php" class="delete-btn" >Go Back</a>
                 </div>
             </form>
         </div>
