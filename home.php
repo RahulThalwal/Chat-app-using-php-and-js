@@ -61,5 +61,7 @@ if(!isset($user_id)){
                 </div>
             </section>
         </div>
+
+        <script src="js/home.js"></script>
     </body>
 </html>
