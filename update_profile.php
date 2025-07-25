@@ -22,16 +22,11 @@ if(isset($_POST['update_profile'])){
     if($update_nm){
         $alert[] = "Name updated succesfull";
     }
-
-
-
-    if(!empty($update_email)){
         if(filter_var($update_email, FILTER_VALIDATE_EMAIL)){
                $update_email = mysqli_query($conn, "UPDATE user_form SET email='$update_email' WHERE user_id = '$user_id' ");
         }else{
             $alert[]="$update_email is not a valid email";
         }
-    }
 
     $image = $_FILES['update_image']['name']; // user image name
     $image_size = $_FILES['update_image']['size']; // user image size

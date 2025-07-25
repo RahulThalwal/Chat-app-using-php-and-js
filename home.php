@@ -45,7 +45,7 @@ if(!isset($user_id)){
                     </button>
                 </form>
                 <div class="all_users">
-                    <a href="chat.php">
+                    <!-- <a href="chat.php">
                         <div class="content">
                             <img src="uploaded_img/default-avatar.png" alt=""> 
                             <div class="details">
@@ -56,7 +56,7 @@ if(!isset($user_id)){
                         <div class="status-dot">
 
                         </div>
-                    </a>
+                    </a> -->
 
                 </div>
             </section>
