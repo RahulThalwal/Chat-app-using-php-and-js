@@ -10,20 +10,7 @@ $output = "";
 if(mysqli_num_rows($query) == 0 ){
     $output .= "No  Users are available to chat";
 }elseif(mysqli_num_rows($query) > 0){
-  while($row = mysqli_fetch_assoc($query)){
-    $output .=    '<a href="chat.php?user_id=' . $row['user_id'] . '">
-                        <div class="content">
-                            <img src="uploaded_img/' . trim($row['img']) .'" alt=""> 
-                            <div class="details">
-                                <span>'. htmlspecialchars($row['name']) .'</span>
-                                <p>' . htmlspecialchars($row['status']) . '</p>
-                            </div>
-                        </div>
-                        <div class="status-dot">
-
-                        </div>
-                    </a>';
-  }
+  include 'user_data.php';
 }
 echo $output;
 ?>
