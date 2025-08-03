@@ -3,7 +3,7 @@
 
  while($row = mysqli_fetch_assoc($query)){
 
-    $sql2 = "SELECT  * FROM messages WHERE (incoming_msg_id = {$row['user_id']} OR  outgoing_msg_id = {$row[$user_id]})
+    $sql2 = "SELECT  * FROM messages WHERE (incoming_msg_id = {$row['user_id']} OR  outgoing_msg_id = {$row['user_id']})
     AND (outgoing_msg_id = {$outgoing_id} OR incoming_msg_id = {$outgoing_id}) ORDER BY  msg_id DESC LIMIT 1";
 
  $query2 =  mysqli_query($conn, $sql2);
@@ -11,7 +11,7 @@
 
  
 
- (mysqli_num_rows($query2) > 0 ) ? $result = $row['msg'] : $result ["No message available"];
+ (mysqli_num_rows($query2) > 0 ) ? $result = $row['msg'] : $result = "No message available";
 // if user hasn't chat each others
  (strlen($result) > 28) ? $msg = substr($result, 0, 28 ) . '.....' : $msg = $result;
  // if user chat is grater than 20
@@ -29,18 +29,19 @@
     $you = '';
  }
 
-//  (row['status'] == "offilne_now")? $offline = 
+ ($row['status'] == "offilne_now")? $offline = "offline" : $offline = "";
 
+ ($outgoing_id == $row['user_id']) ? $shid_me = "hide" : $hid_me="";
 
     $output .=    '<a href="chat.php?user_id=' . $row['user_id'] . '">
                         <div class="content">
                             <img src="uploaded_img/' . trim($row['img']) .'" alt=""> 
                             <div class="details">
                                 <span>'. htmlspecialchars($row['name']) .'</span>
-                                <p>' . htmlspecialchars($row['status']) . '</p>
+                                <p>' .$you . $msg . '</p>
                             </div>
                         </div>
-                        <div class="status-dot">
+                        <div class="status-dot '.$offline.'">
 
                         </div>
                     </a>';

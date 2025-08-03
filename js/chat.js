@@ -1,0 +1,1 @@
+const send_image = document.querySelector(".typing-area");

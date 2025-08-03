@@ -1,3 +1,23 @@
+<?php
+include 'php/config.php';// including the database connection
+session_start();
+$user_id = $_SESSION['user_id'];
+
+
+
+$get_user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
+
+if(!isset($user_id)){
+    header('location: login.php');
+}
+
+  $select = mysqli_query($conn, "SELECT * from user_form WHERE user_id = '$get_user_id'");
+  if(mysqli_num_rows($select) > 0 ){
+    $row = mysqli_fetch_assoc($select);
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,14 +30,14 @@
         <div class="container">
             <section class="chat-area">
                 <header>
-                    <a href="home.html" class="back-icon"><img
+                    <a href="home.php" class="back-icon"><img
                             src="images/arrow.svg" alt> </a>
-                    <img src="uploaded_img/default-avatar.png" alt>
+                    <img src="uploaded_img/<?php echo trim($row['img'])?>" alt="">
                     <div class="details">
                         <span>
-                            Alfeed Marshall
+                            <?php echo trim($row['name'])?>
                         </span>
-                        <p>Active now</p>
+                        <p><?php echo trim($row['status'])?></p>
                     </div>
                 </header>
                 <div class="chat-box">
@@ -51,7 +71,7 @@
                     </div>
                 </div>
                 <form action="#" class="typing-area">
-                    <input type="text" name="incoming_id" class="incomig_id" id="" hidden>
+                    <input type="text" name="incoming_id" value="<?php echo $get_user_id?>" class="incomig_id" id="" hidden>
                     <input type="text" name="message" class="input-field" placeholder="type a message here....">
                     <button class="image"><img src="images/camera.svg" alt=""></button>
                     <input type="file" name="send_image" accept="image/*" class="upload_img" hidden >
@@ -59,5 +79,8 @@
                 </form>
             </section>
         </div>
+
+
+        <script src="js/chat.js"></script>
     </body>
 </html>
