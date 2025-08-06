@@ -11,7 +11,7 @@
 
  
 
- (mysqli_num_rows($query2) > 0 ) ? $result = $row['msg'] : $result = "No message available";
+ (mysqli_num_rows($query2) > 0 ) ? $result = $row2['msg'] : $result = "No message available";
 // if user hasn't chat each others
  (strlen($result) > 28) ? $msg = substr($result, 0, 28 ) . '.....' : $msg = $result;
  // if user chat is grater than 20
