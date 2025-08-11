@@ -1,5 +1,6 @@
 <?php 
 include 'php/config.php'; // including the database connection
+session_start();
 $image_rename = 'default-avatar.png'; // User default image
 if (isset($_POST['submit'])){ // If user click the submit button 
 
@@ -51,6 +52,9 @@ $insert = mysqli_query($conn, "INSERT INTO `user_form`( `user_id`,`name`, `email
 
 }
 
+if(isset($_SESSION['user_id'])){
+  header("location: home.php");
+}
 
 ?>
 

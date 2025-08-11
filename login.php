@@ -33,7 +33,9 @@ if (isset($_POST['submit'])){ // If user click the submit button
     $alert[] = "$email this is invalid email";
   }
 }
-
+if(isset($_SESSION['user_id'])){
+  header("location: home.php");
+}
 ?>
 
 

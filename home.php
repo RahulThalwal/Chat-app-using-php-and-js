@@ -36,7 +36,7 @@ if(!isset($user_id)){
                             <p><?php echo rawurlencode(trim($row['status']));?></p>
                         </div>
                     </div>
-                    <a href="" class="logout">Logout</a>
+                    <a href="php/logout.php?logout_id=<?php echo $user_id?>" class="logout">Logout</a>
                 </header>
                 <form action="" method="post" class="search">
                     <input type="text" name="search_box"

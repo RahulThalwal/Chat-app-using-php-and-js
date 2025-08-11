@@ -18,7 +18,7 @@
 
  if(mysqli_num_rows($query2) != 0){
     if($row2 ['msg'] == '' && $row2['msg_img'] != ''){ // if user cht is image
-        $img = 'image'; 
+        $msg = 'image'; 
     }
  }
 

@@ -43,6 +43,7 @@ sendBtn.onclick =()=>{
         if(xhr.status === 200){
             inputField.value = "";
             image.value = "";
+            scrollBottom();
             sendBtn.classList.remove("active");
         }
     }
@@ -55,20 +56,34 @@ let formData = new FormData(form);
 
 };
 
+chatBox.onmouseenter = ()=>{
+ chatBox.classList.add("active");   
+}
+chatBox.onmouseleave = ()=>{
+ chatBox.classList.remove("active");   
+}
 
 setInterval(() =>{
        let xhr = new XMLHttpRequest();
        xhr.open("POST", "php/get_chat.php", true);
        xhr.onload = () =>{
-         if(xhr.readyState === XMLHttpReuest.DONE){
+         if(xhr.readyState === XMLHttpRequest.DONE){
             if(xhr.status === 200){
                 let data = xhr.response;
                 chatBox.innerHTML = data;
+                if(! chatBox.classList.contains("active")){
+                    scrollBottom();
+                }
+
             }
          }
        }
 
-xhr.setRequestHeader("content-type", "application/x-www-form-urlencode");
-xhr.send("incoming_id" + incoming_id);
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xhr.send("incoming_id=" + incoming_id);
 
 }, 500);
+
+function scrollBottom(){
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
